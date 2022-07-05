@@ -891,8 +891,100 @@ by leading the Photon Detection System Consortium at DUNE, with the Lepton LAB t
 % star's birth.
 
 
+% -----------------------------------------------------------------
+% State of the art, electronics of DAPHNE
+% -----------------------------------------------------------------
+\subsection{DUNE Experiment}
+
+The DUNE (Deep Underground Neutrino Experiment) is an experiment under construction for the study of neutrinos, which was formed in April 2015 and will be fully operational by the year 2027. The Fermilab facilities (in Illinois) will be used for the experiment to produce neutrinos and to install a nearby detector. At 1300 kilometers (Sanford Laboratory in South Dakota) a distant detector will be located (1.5 km below the surface) that will observe the neutrinos produced in Fermilab \cite{Anderson_2012}.
+
+Among the objectives of the DUNE are to investigate the neutrino oscillations to test the violation of CP in the lepton sector, to determine the order of the masses of neutrinos, to study supernovae and the formation of a neutron star or a black hole, to study the decomposition of protons, among others.
+
+In the Sanford Laboratory, at a depth of 1,500 m, 4 tanks (63.6 m long, 16.7 m wide and 15.6 m high) will be built, which will be filled with liquid argon and will serve as detectors for neutrino collisions with atoms of argon. Silicon photon multipliers (SiPM) will be placed around the tanks to record the radiation produced in the collisions of neutrinos with argon atoms. A card called DAPHNE (Electronic Detector to Acquire Photons from Neutrinos) has been developed that will supply the voltage to the silicon photon multipliers (SiPM) and take the data to send them through an optical fiber, each DAPHNE card will control 40 SiPM and register the signal of each SiPM at 65 MHz.
 
 
+\subsection{Photon Detectors}
+
+\subsubsection{The single-phase Liquid Argon Temporary Projection Chamber (LArTPC)}
+
+
+The primary physical goals of DUNE are the search for lepton charge parity (CP) violation, the search for nucleon decay as a signature of a Grand Unified Theory underlying the Standard Model, and the observation of neutrino bursts from supernova (SNB) of supernovae. Critical to achieving this physics program is the construction of a detector that combines the multi-kiloton fiducial mass detection needed for rare event searches with subcentimeter spatial resolution in its capability to image those events, allowing us to identify signatures of rare events. The single phase (SP) Liquid Argon Time Projection Chamber (LArTPC) \cite{Rubbia:117852} enables these dual objectives to be achieved by providing a way to read ionization patterns in large volumes of liquid argon (LAr) at subcentimeter granularity, Solar neutrino interactions and SNB to GeV-scale interactions of neutrinos from the Long-Baseline Neutrino Facility (LBNF) beam \cite{Abi_2020_2}.
+
+To search for the lepton violation of CP, the appearance of electron neutrinos $\nu_{e}$ in the LBNF beam of muon neutrinos $\nu_{\mu}$ must be studied. This requires the ability to separate the electromagnetic activity induced by the charged current interactions of $\nu_{e}$ from the similar activity arising from photons. Two signatures allow this: photon showers are usually preceded by a gap before the conversion, characterized by the conversion length of 18 cm in LAr; and the initial part of a photon shower, where an electron-positron pair is produced, has twice the $dE/dx$ of the initial part of an electron-induced drift. It is also vital to accurately identify these nucleon decay events to suppress cosmic muon-induced backgrounds, and here the detection of argon scintillation photons is essential to determine the event's timing.
+
+Detecting an SNB presets different challenges: dealing with a high data rate and maintaining the high detector uptime required to ensure we don't miss one of these rare events. The signature of an SNB is a collection of electron footprints of MeV energy a few centimeters in length distributed throughout the volume of the detector. To completely rebuild an SNB, the entire detector must be read, a data rate of up to 2 TB/s, for 30 s to 100 s, including a pre-trigger window \cite{Abi2017}.
+
+A large volume of LAr is subjected to a strong electric field of a few hundred volts per centimeter. Charged particles passing the detector ionize the argon atoms and the ionization electrons travel in the E-field towards the anode wall on a time scale of milliseconds. This anode consists of layers of active wires that form a grid. The relative voltage between the layers is chosen to ensure that all but the final layers are transparent to drifting electrons, and these first layers produce bipolar induction signals as electrons pass through them.
+
+The final layer collects the drifting electrons, resulting in a monopolar signal. LAr is also an excellent scintillator, emitting UV light at 127 nm. This fast-scintillating light, passing through the detector on a nanosecond time scale, travels into the visible and is collected by photon detector devices (PDs). PDs can provide an initial time determination $t_0$ for events, telling us when the ionizing electrons begin to drift. Relative to this $t_0$, the time at which the ionizing electrons reach the anode allows the reconstruction of the event topology along the drift direction, which is crucial for identifying nucleon decay events and applying drift corrections to ionization charge. The current pattern observed in the grid of the anode wires provides the information for the reconstruction in the two coordinates perpendicular to the drift direction.
+
+
+\subsection{Photon Detection System}
+
+Compared to ionization electrons, which can take milliseconds to traverse the drift volume, scintillation photons are fast, arriving at DPs within nanoseconds after production. This flashing light provides a t0 for each event. By comparing the arrival time of the ionization at the anode with this t0, reconstruction in the drift direction becomes possible. A 1 µs timing resolution of the PD system allows a position resolution of ∼1 mm for 10 MeV SNB events \cite{Abi_2020_2}.
+
+This must be able to be done throughout the active volume with >99\% efficiency, leading to a requirement of at least 0.5 photoelectrons per MeV detected for events in all parts of the detector. PD modules are detector bars that are mounted on the Anode Plane Assembled (APA) between the layers of cables. Each bar contains 24 Arapuca cells, grouped into four supercells. The Arapucas are photon confinement systems whose outer layers have dichroic filters that are transparent to 127 nm scintillation light. Between these filters is a wavelength shift plate (WLS), which converts UV photons into the visible spectrum (430nm). Visible photons emitted within the WLS plate at an angle to the surface greater than the critical angle reach the SiPMs at the edges of the plates. Visible photons escaping from the WLS plates are reflected by dichroic filters, which have an optical cutoff, reflecting photons with wavelengths greater than 400nm back onto the WLS plates.
+
+The 48 SiPMs in each Arapuca supercell are grouped and the signals are collected by front-end electronics, mounted on the supercell. The front-end electronics design is inspired by the system used for the Mu2e cosmic ray tagger \cite{Bartoszek2015}, which uses commercial ultrasound ASICs. The front-end electronics define the 1 µs timing resolution of the PD system.
+
+\subsection{Horizontal drift as detector array setup}
+
+The DUNE SP LArTPC consists of four modules inside a cryostat with external dimensions of 65.8m × 17.8m × 18.9m, four 3.5m drift volumes are created between five alternating anode and cathode walls. The FD is located underground, 1.5 km from the Sanford Underground Research Facility (SURF) in South Dakota. The detector is 1,300 km from the source of the LBNF neutrino beam at the Fermi National Accelerator Laboratory (Fermilab); this baseline provides the necessary matter effects for DUNE to determine the neutrino mass hierarchy \cite{Abi_2020}.
+
+Each cathode wall in a module is called a cathode plane array (CPA) array. Each CPA array contains 150 CPAs. With the anode walls close to the ground, this results in a uniform field of 500 V/cm E throughout the drift volume. An FC surrounds the remaining open sides of the time projection chamber (TPC), ensuring that the field is uniform to better than 1\% throughout the active volume. A typical minimal ionizing particle passing through argon produces about 60k ionizing electrons per centimeter, moving towards the anodes at about 1.6 mm/µs; the time required to travel the entire distance from cathode to anode would therefore be about 2.2 ms. APAs hang vertically; each anode wall is two APA high and 25 APA wide. APAs are two-sided, with three layers of active cables and an additional protection layer, also called a grid layer, wrapped around them. The spacing of the leads in the layers is ~5mm. The collection layer is called the X layer; the immediately neighboring induction layer is called the V layer; the next induction layer is the U layer, and the protective layer is the G-layer. The X-layer and G-layer cables are vertical; U and V layer leads are ±35.7° from vertical. The reading electronics, called cold electronics (CE), are attached to the upper end of the upper APA and the lower end of the lower APA. These front-end electronics (FE) benefit from the low LAr temperature through reduced thermal noise. The front-end electronics shape, amplify and digitize the signals from the induction and pickup cables thanks to a series of three different types of ASICs through which all signals pass. The CE cables pass through grommets in the roof of the cryostat; the cables from the base plates in the lower APA run through the inside of the hollow APA frames to the top. Once the APA signals leave the cryostat through the connections, they pass to warm interface plates that place the signals on 10 Gbps optical fibers, ten fibers per APA, that carry the signals to the DAQ system. Figure \ref{Fig_X1} presents the configuration of the detectors in the setup called horizontal drift.
+
+\begin{figure}[hbtp]
+\centering
+\includegraphics[width=0.7\textwidth]{Hori_Drift.png}
+\caption{Distribution of detectors in horizontal drift \cite{Abi_2020}.}
+\label{Fig_X1}
+\end{figure}
+
+
+\subsection{DAPHNE and its integration with horizontal drift}
+
+The design and construction of the card for the photon detection system (PDS), which is called DAPHNE (Figure \ref{Fig_X2}), is led by Brazil and some groups from Latin America participate. With cold electronics (CE), both systems are designed to work together to detect and process the photons collected by the SiPMs, which are inside the liquid argon.
+
+
+
+\begin{figure}[hbtp]
+\centering
+\includegraphics[width=0.7\textwidth]{Daphne.png}
+\caption{Design of the DAPHNE acquisition system, each DAPHNE system allows the digitization of 40 independent channels coming from the photon detectors, at a frequency of 62.5 MHz, this information is then transmitted through a Gigabit Ethernet interface.}
+\label{Fig_X2}
+\end{figure}
+
+DAPHNE's architecture is based on the FELIX system designed at CERN and used for the LHC experiments. The module's PDs will have a lower data rate since the PD electronics, unlike the TPC's, perform zero suppression; therefore, the PDs of a module will be processed. The DAQ will be partitionable: It will be possible to run multiple DAQ instances simultaneously so that most of the detector can take physical data while other DAQ instances run tests for development or special runs, such as calibration runs.
+
+A key philosophy is that all of DUNE's main physical goals can be achieved using only the TPC as a trigger; the information from the PDs can further improve the trigger. There will be two basic triggers in operation. Beam, cosmic, and nucleon decay events will be triggered using the localized high-energy trigger.
+
+Once an activation decision has been made, this will be communicated to the surface and the data will be stored underground until the DAQ BE indicates that it is ready to receive data. The DAQ must also provide the system clock that keeps the detector components in sync and provides the timestamp for all data. To provide finer synchronization between detector components, a 10 MHz reference clock drives the module's 62.5 MHz master clock, which spans all detector components, providing overall synchronization to within 1 ns.
+
+
+
+\subsection{Vertical drift as detector array setup}
+
+The vertical drift or dual pass photon detection system is an arrangement of photon detectors that promises to have advantages in the detection of events with respect to the horizontal drift or single pass photon detection, mainly much smaller volumes of liquid Argon could be used, significantly improving the ratio signal-to-noise detection (S/N > 30), is much simpler to build and will allow light to be detected more uniformly at greater distances \cite{Pietropaolo:2792672}.
+
+In this system, the anode and cathode arrangement will be located horizontally, separated by an approximate distance of 6.5 m on the vertical axis, allowing in turn to locate the detection units close to the surface of the Argon and at the base of the cryostat, allowing to stabilize hydrostatic pressure in the container. An electric field of intensity 450 V/cm will be established between the anode and the cathode. For this detector, the displacement of the electrons will be carried out on the vertical axis. Figure \ref{Fig_X3} presents the configuration of the detectors in the setup called vertical drift.
+
+
+\begin{figure}[hbtp]
+\centering
+\includegraphics[width=0.7\textwidth]{Vert_Drift.png}
+\caption{Distribution of detectors in vertical drift \cite{Abi_2020}.}
+\label{Fig_X3}
+\end{figure}
+
+\subsection{Problem state}
+
+\subsubsection{Problem to integrate DAPHNE with vertical drift, reduction of its spectrum of applications}
+
+Both horizontal drift and vertical drift are two configurations of photodetectors that have the mission of detecting the interaction between neutrinos and liquid Argon. Despite this, they have two different setups and it is possible that the DAPHNE acquisition system requires different configurations to perform a correct digitization of the stimuli.
+
+These configurations may involve changes to DAPHNE's control software as well as changes to the hardware design, fitting some specific components to improve the detection or new design requirements. Just as it is proposed that the acquisition system can be used with these setups for neutrino detection, new experiments may be considered in the future that require the digitization of high-speed signals for which DAPHNE was designed, but that require of adjustments in its configuration parameters. 
+
+Therefore, it is essential to carry out an analysis and evaluation of the possible modifications that must be made to the DAPHNE board so that it can be used in other experiments or used with different photon detection setups that allow collecting valuable information to answer the questions. raised in the DUNE experiment.
 
 
 
